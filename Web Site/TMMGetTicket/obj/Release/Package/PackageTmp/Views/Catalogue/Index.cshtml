@@ -1,0 +1,35 @@
+﻿@model List<TMMGetTicket.Models.Performance>
+@{
+    ViewBag.Title = "Catalogue";
+}
+<h3>@ViewData["Message"]</h3>
+<table class="board" style="width:100%" border="1" >
+    <tr>
+        @{
+            for (int i = (ViewBag.Page - 1) * 8; i < Model.Count && i < ViewBag.Page * 8 - 4; i++)
+            {
+                Html.RenderPartial("PerformanceView", Model[i]);
+            }
+        }
+    </tr>
+    <tr>
+        @{
+            for (int i = (ViewBag.Page - 1) * 8 + 4; i < Model.Count && i < ViewBag.Page * 8; i++)
+            {
+                Html.RenderPartial("PerformanceView", Model[i]);
+            }
+        }
+    </tr>
+</table>
+
+<div class="row" style="width:100%;">
+    @if (ViewBag.Page > 1)
+    {
+    @Html.ActionLink("Previous page", "Index", "Catalogue", new { page = ViewBag.Page - 1 }, new { @class = "btn" })
+    }
+    @if (ViewBag.Page*8 < Model.Count)
+    {
+        @Html.ActionLink("Next page", "Index", "Catalogue", new { page = ViewBag.Page + 1 }, new { @class = "btn" })
+    }
+</div>
+

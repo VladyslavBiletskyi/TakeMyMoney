@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Профиль"
+        android:id="@+id/profile" />
+    <item android:title="Каталог"
+        android:id="@+id/catalogue" />
+    <item android:title="Мои билеты"
+        android:id="@+id/my_tickets" />
+    <item android:title="О системе"
+        android:id="@+id/about" />
+    <item android:title="Выход"
+        android:id="@+id/exit" />
+
+</menu>

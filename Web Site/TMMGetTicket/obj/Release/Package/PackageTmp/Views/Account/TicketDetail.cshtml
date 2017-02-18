@@ -1,0 +1,15 @@
+﻿@model TMMGetTicket.Models.TicketViewModel
+<table class="table-bordered">
+    <tr>
+        <td>Билет №@Model.Ticket.TicketNumber</td>
+        <td>Мероприятие: @Model.Performance.Name</td>
+        <td>Время проведения: @Model.Performance.BeginingDateTime</td>
+        @{ 
+            string qr = String.Format("id:{0};num:{1};user:{2};perf:{3}", Model.Ticket.Id, Model.Ticket.TicketNumber, Model.Ticket.UserId, Model.Ticket.PerformanceId);
+        }
+        <td>@Html.GenerateRelayQrCode(@qr)</td>
+    </tr>
+    <tr>
+        @Html.ActionLink("Сдать билет", "ReturnTicket", "Catalogue",new {@id=Model.Ticket.Id },new {@class="btn" })
+    </tr>
+</table>

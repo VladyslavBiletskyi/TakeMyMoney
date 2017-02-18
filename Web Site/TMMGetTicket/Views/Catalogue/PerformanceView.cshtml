@@ -1,0 +1,26 @@
+﻿@model TMMGetTicket.Models.Performance
+<td class="col-lg-3">
+    <b>@Model.Name</b><br />
+    @{
+        string src = (Model.Image !=null) ?
+            "data:image/jpeg;base64," + Convert.ToBase64String(Model.Image.Image) :
+            "";
+        
+    }
+    @if (src == "")
+    {
+        <img style="width:100px;height:150px" src=~/Resources/NoPhoto.png ) />
+    }
+    else
+    {
+        <img style="width:100px;height:150px" src="@src" ) />
+        }
+    <br />
+    Место проведения:@Model.Place<br />
+    Дата проведения:@Model.BeginingDateTime<br />
+    @{
+        int count = Model.TicketCount - Model.FacticalCount;
+    }
+    Билетов осталось:@count<br />
+    @Html.ActionLink("Подробнее", "Detail", new { id = Model.Id })
+</td>      

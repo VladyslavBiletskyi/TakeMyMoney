@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TakeMyMoneyDB-Web.config Connection String" description="TakeMyMoneyDB Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Server=tcp:takemymoneydbserver.database.windows.net,1433;Initial Catalog=TMMDB;Persist Security Info=False;User ID=vladyslav;Password=Pass1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Лабы\\AtTPZ\\WebApi\\WebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TakeMyMoneyDB']/@connectionString" />
+  </parameter>
+  <parameter name="TakeMyMoneyDB_DatabasePublish-Web.config Connection String" description="TakeMyMoneyDB_DatabasePublish Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="TakeMyMoneyDB_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Лабы\\AtTPZ\\WebApi\\WebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TakeMyMoneyDB_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

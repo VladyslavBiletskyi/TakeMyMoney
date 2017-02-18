@@ -1,0 +1,38 @@
+﻿@model TMMGetTicket.Models.CabinetInfoModel
+@{
+    ViewBag.Title = "Cabinet";
+}
+<h3>@ViewData["Message"]</h3>
+<br />
+<div class="row">
+    <div class="col-lg-4">
+        <br />
+        <ul>
+            <li>Email:@Model.User.Email</li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+        Ваши билеты
+        <br />
+        <br />
+        <ul>
+            @for(int i=0;i<Model.Tickets.Length;i++)
+            {
+                <li><a href="#" onclick="ShowTicket(@Model.Tickets[i].Id)">Билет №@Model.Tickets[i].TicketNumber</a></li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-4" id="TicketInfo">
+    </div>
+</div>
+<script>
+    function ShowTicket(id) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("TicketDetail","Account")/' + id,
+            success: function (data) {
+                $('#TicketInfo').html(data);
+            }
+        });
+    }
+</script>
